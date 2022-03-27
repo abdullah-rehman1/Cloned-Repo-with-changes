@@ -1,0 +1,1 @@
+web: gunicorn qayaamApi.wsgi --log-file -
