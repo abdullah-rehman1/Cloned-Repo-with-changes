@@ -6,4 +6,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^', include('listings.urls')),
     re_path(r'^', include('listingsFeedback.urls')),
+    re_path(r'^', include('booking.urls')),
 ]

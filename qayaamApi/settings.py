@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'listings',
+    'booking',
     'listingsFeedback',
     'whitenoise.runserver_nostatic',
 ]
@@ -146,3 +147,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+USE_L10N = False
+
+DATE_INPUT_FORMATS = ['%d/%m/%Y'] 
