@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-mh*1u4chj-2!ml49r5%^ivrqtzq360gl=m*n^e42yhwk4+w$i%
 DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1','qayaamapi.herokuapp.com']
-CORS_ORIGIN_ALLOW_ALL = True
+
 
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
@@ -154,3 +154,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 USE_L10N = False
 
 DATE_INPUT_FORMATS = ['%d/%m/%Y'] 
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_HEADERS = ['*']
