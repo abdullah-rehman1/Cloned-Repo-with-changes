@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'listings',
     'booking',
+    'accounts',
     'listingsFeedback',
     'whitenoise.runserver_nostatic',
 ]

@@ -7,4 +7,5 @@ urlpatterns = [
     re_path(r'^', include('listings.urls')),
     re_path(r'^', include('listingsFeedback.urls')),
     re_path(r'^', include('booking.urls')),
+    re_path(r'^', include('accounts.urls')),
 ]
