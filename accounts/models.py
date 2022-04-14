@@ -17,4 +17,4 @@ class Account(models.Model):
     photo = models.ImageField(upload_to='photos/%Y/%m/%d/', default='photo')
    
     def __str__(self):
-        return self.title
+        return self.name+" "+self.user_type

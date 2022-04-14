@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'listings',
     'booking',
     'accounts',
+    'tenantsFeedback',
     'listingsFeedback',
     'whitenoise.runserver_nostatic',
 ]

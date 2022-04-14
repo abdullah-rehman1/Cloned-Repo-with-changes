@@ -1,9 +1,12 @@
 from django.db import models
+from django.shortcuts import get_object_or_404
+
+from accounts.models import Account
 
 # Create your models here.
 class Listing(models.Model):
     list_id = models.AutoField(primary_key=True)
-    realtor = models.CharField(max_length=200)
+    realtor_id = models.ForeignKey(Account, related_name='realtor', on_delete=models.CASCADE, null=True)
     title = models.CharField(max_length=200)
     address = models.CharField(max_length=200)
     city = models.CharField(max_length=100)
@@ -39,3 +42,10 @@ class Listing(models.Model):
    
     def __str__(self):
         return self.title
+    
+    def save(self, *args, **kwargs):
+        realtor = get_object_or_404(Account, user_id=self.realtor_id.user_id)
+        if realtor.user_type != 'Realtor':
+            raise ValueError('selected user must be realtor')
+        super().save(*args, **kwargs)
+    

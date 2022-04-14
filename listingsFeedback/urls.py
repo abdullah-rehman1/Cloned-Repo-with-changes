@@ -6,5 +6,5 @@ urlpatterns = [
     # path('admin/', admin.site.urls),
     path('listingfeedbacks-all', views.SpecificListingFeedback.as_view()),
     path('listingfeedbacks-all/<int:pk>', views.ListingFeedbackDetail.as_view()),
-    path('listings-all/listingfeedbacks-all/', views.SpecificListingFeedback.as_view()),
+    path('listingfeedbacks-all/specific-feedbacks', views.SpecificListingFeedback.as_view()),
 ]
