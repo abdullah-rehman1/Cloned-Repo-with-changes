@@ -14,8 +14,11 @@ class SpecificListingFeedback(generics.ListCreateAPIView):
     def get_queryset(self):
         queryset = TenantFeedback.objects.all()
         tenant_id = self.request.query_params.get('tenant_id')
+        realtor_id = self.request.query_params.get('realtor_id')
         if tenant_id is not None:
             queryset = queryset.filter(tenant_id_id=tenant_id)
+        elif realtor_id is not None:
+            queryset = queryset.filter(realtor_id_id=realtor_id)
         return queryset
 
 class TenantFeedbackDetail(generics.RetrieveUpdateDestroyAPIView):
