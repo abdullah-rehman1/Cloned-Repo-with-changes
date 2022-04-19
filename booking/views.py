@@ -22,5 +22,4 @@ class SpecificListingBooking(generics.ListCreateAPIView):
             queryset = queryset.filter(list_id_id=list_id)
         elif tenant_id is not None:
                 queryset = queryset.filter(tenant_id_id=tenant_id)
-        return queryset
-        
+        return queryset        

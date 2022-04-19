@@ -9,7 +9,7 @@ class TenantFeedbackList(generics.ListCreateAPIView):
     queryset = TenantFeedback.objects.all()
     serializer_class = TenantFeedbackSerializer
 
-class SpecificListingFeedback(generics.ListCreateAPIView):
+class SpecificTenantFeedback(generics.ListCreateAPIView):
     serializer_class = TenantFeedbackSerializer
     def get_queryset(self):
         queryset = TenantFeedback.objects.all()

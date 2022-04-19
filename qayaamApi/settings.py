@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'listings',
     'booking',
     'accounts',
+    'django_extensions',
     'tenantsFeedback',
     'listingsFeedback',
     'whitenoise.runserver_nostatic',
