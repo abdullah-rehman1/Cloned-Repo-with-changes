@@ -38,3 +38,12 @@ class SpecificRealtorBooking(generics.ListCreateAPIView):
         if realtor_id is not None:
             queryset = queryset.filter(realtor_id_id=realtor_id)    
         return queryset  
+
+class SpecificRealtorApprovedBooking(generics.ListCreateAPIView):
+    serializer_class = BookingSerializer
+    def get_queryset(self):
+        queryset = Booking.objects.all()
+        realtor_id = self.request.query_params.get('realtor_id')
+        is_approved = self.request.query_params.get('is_approved')
+        queryset = queryset.filter(realtor_id_id=realtor_id).filter(is_approved=is_approved)
+        return queryset

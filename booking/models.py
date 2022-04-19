@@ -12,6 +12,11 @@ class Booking(models.Model):
     booking_date_time = models.DateTimeField()
     checkin_date = models.DateField()
     checkout_date = models.DateField()
+    approval_choices = (
+        ('No', 'No'),
+        ('Yes', 'Yes'),
+    )
+    is_approved = models.CharField(max_length=100, choices=approval_choices, default='No')
 
     def save(self, *args, **kwargs):
         tenant = get_object_or_404(Account, user_id=self.tenant_id.user_id)

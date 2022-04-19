@@ -39,7 +39,7 @@ class Listing(models.Model):
     is_featured = models.BooleanField(default=False)
     photo1 = models.ImageField(upload_to='photos/%Y/%m/%d/', default='photo1')
     photo2 = models.ImageField(upload_to='photos/%Y/%m/%d/', default='photo2')
-   
+    
     def __str__(self):
         return self.title
     

@@ -7,4 +7,5 @@ urlpatterns = [
     path('listings-all', views.ListingList.as_view()),
     path('listings-all/<int:pk>', views.ListingDetail.as_view()),
     path('listings-all/specific-listings/', views.SpecificRealtorListing.as_view()),
+    path('listings-all/specific-realtor-featured-listings/', views.SpecificRealtorFeaturedListing.as_view()),
 ]
