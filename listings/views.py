@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from pyparsing import And
 from rest_framework import generics,fields, serializers
 from .serializers import *
 from .models import Listing
