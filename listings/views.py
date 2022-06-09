@@ -70,6 +70,7 @@ class Listing(View):
 
 
 #Create your views here.
+
 class ListingList(generics.ListCreateAPIView):
     queryset = ListingModel.objects.all()
     serializer_class = ListingSerializer

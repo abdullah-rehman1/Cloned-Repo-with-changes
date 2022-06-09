@@ -95,7 +95,9 @@ class Approved_Booking(View):
                 return Response(serializer.data)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    # Create your views here.
+    # Create your Generic views here.
+    #
+    #
 class BookingList(generics.ListCreateAPIView):
     queryset = BookingModel.objects.all()
     serializer_class = BookingSerializer

@@ -11,17 +11,17 @@ class AccountList(generics.ListCreateAPIView):
     queryset = AccountModel.objects.all()
     serializer_class = AccountSerializer
 
-class signIn(generics.ListCreateAPIView):
-    serializer_class = AccountSerializer
-    def get_queryset(self):
-        queryset = AccountModel.objects.all()
-        email = self.request.query_params.get('email')
-        password = self.request.query_params.get('password')
-        queryset = queryset.filter(email=email).filter(password=password)
-        return queryset
-class AccountDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = AccountModel.objects.all()
-    serializer_class = AccountSerializer
+# class signIn(generics.ListCreateAPIView):
+#     serializer_class = AccountSerializer
+#     def get_queryset(self):
+#         queryset = AccountModel.objects.all()
+#         email = self.request.query_params.get('email')
+#         password = self.request.query_params.get('password')
+#         queryset = queryset.filter(email=email).filter(password=password)
+#         return queryset
+# class AccountDetail(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = AccountModel.objects.all()
+#     serializer_class = AccountSerializer
 
 # class Account(View):
 #     @api_view(['POST'])
@@ -95,3 +95,20 @@ class AccountDetail(generics.RetrieveUpdateDestroyAPIView):
 #         elif request.method == 'DELETE':
 #             account.delete()
 #             return Response(status=status.HTTP_204_NO_CONTENT) 
+
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.authtoken.models import Token
+
+class TokenObtainView(ObtainAuthToken):
+    def post(self, request, *args, **kwargs):
+        serializer = self.serializer_class(data=request.data,
+                                           context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data['user']
+        token, created = Token.objects.get_or_create(user=user)
+        custom_response = {
+            'token': token.key,
+            'user_id': user.user_id,
+            'type': user.user_type
+        }
+        return Response(custom_response)
