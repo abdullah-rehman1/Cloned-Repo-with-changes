@@ -19,9 +19,9 @@ class AccountList(generics.ListCreateAPIView):
 #         password = self.request.query_params.get('password')
 #         queryset = queryset.filter(email=email).filter(password=password)
 #         return queryset
-# class AccountDetail(generics.RetrieveUpdateDestroyAPIView):
-#     queryset = AccountModel.objects.all()
-#     serializer_class = AccountSerializer
+class AccountDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = AccountModel.objects.all()
+    serializer_class = AccountSerializer
 
 # class Account(View):
 #     @api_view(['POST'])
