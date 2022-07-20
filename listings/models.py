@@ -5,7 +5,7 @@ from accounts.models import Account
 # Create your models here.
 class Listing(models.Model):
     list_id = models.AutoField(primary_key=True)
-    realtor_id = models.ForeignKey(Account, related_name='realtor', on_delete=models.CASCADE, null=True)
+    realtor_id = models.TextField(blank=True)
     title = models.CharField(max_length=200)
     address = models.CharField(max_length=200)
     city = models.CharField(max_length=100)

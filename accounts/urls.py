@@ -9,5 +9,6 @@ urlpatterns = [
     # path('accounts-all/sign-in', views.signIn.as_view()),
     path('accounts/', include('djoser.urls')),
     path('accounts/', include('djoser.urls.authtoken')),
-    path('accounts/get-token-with-userID/login', views.TokenObtainView.as_view(), name='new-token,obtain-view')
+    path('accounts/get-token-with-userID/login',
+     views.TokenObtainView.as_view(), name='new-token,obtain-view')
 ]
